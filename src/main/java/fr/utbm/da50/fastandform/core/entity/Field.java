@@ -8,7 +8,7 @@ import java.util.Objects;
 import com.google.gson.Gson;
 
 public class Field implements Verifiable, Serializable, Comparable<Field> {
-      private Integer id;
+    private Integer id;
 
     private String name;
 

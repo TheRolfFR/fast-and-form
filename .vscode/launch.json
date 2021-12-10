@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch UserApplication",
+      "request": "launch",
+      "mainClass": "fr.utbm.da50.fastandform.core.UserApplication",
+      "projectName": "core"
+    },
+    {
+      "type": "java",
       "name": "Launch CoreApplication",
       "request": "launch",
       "mainClass": "fr.utbm.da50.fastandform.core.CoreApplication",
