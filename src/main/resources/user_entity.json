@@ -1,0 +1,34 @@
+{
+  "name": "users",
+  "properties": {
+    "username": {
+      "type": "string",
+      "rules": [{
+        "id": "length",
+        "type": "length",
+        "options": {
+          "min": 1
+        }
+      }]
+    },
+    "type": {
+      "type": "array",
+      "rules": [
+        {
+        "id": "correct_types",
+        "type": "values",
+        "options": {
+          "child": "string",
+          "values": ["Administrator", "Donator", "Add-on Maker", "Mods Contributor", "Contributor", "Dungeons Contributor", "Developer", "Translator"]
+        }
+      },
+      {
+        "id": "length",
+        "type": "length",
+        "options": {
+          "min": 3}
+      }
+    ]
+    }
+  }
+}

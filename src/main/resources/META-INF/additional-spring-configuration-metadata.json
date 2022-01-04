@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "ff.entities_location",
+  "type": "java.lang.String[]",
+  "description": "Stores entity JSON file list for beans, separated by commas"
+}]}

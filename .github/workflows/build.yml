@@ -1,0 +1,42 @@
+name: Maven build
+# Creates artifact from code and pom.xml and uploads it
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: 'v'
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      # When running action job locally with act, the docker image used doesn't have maven preinstalled
+      - name: Set up Maven
+        if: ${{ env.ACT }}
+        uses: stCarolas/setup-maven@v4
+
+      - name: Build maven project
+        run: mvn -B package --file pom.xml
+      
+      # act doesn't have either ACTIONS_RUNTIME_TOKEN env variable so we don't test this one here
+      - name: Upload artifact
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: fast-and-form-${{ github.event.inputs.version || steps.previoustag.outputs.tag }}
+          path: target/*.jar	

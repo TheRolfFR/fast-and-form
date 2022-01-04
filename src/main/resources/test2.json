@@ -1,0 +1,41 @@
+{
+"num": {
+    "type": "float",
+    "rules": [
+      {
+        "id": "length",
+        "type": "length",
+        "options": {
+          "min": 1
+        }
+      }
+    ]
+  },
+  "km": {
+    "type": "float",
+    "rules": [
+        {
+            "id": "length",
+            "type": "length",
+            "options": {
+                "min": 2,
+                "max": 5
+            }
+        },
+        {
+            "id": "regex",
+            "type": "regex",
+            "options": {
+                "value": "^[0-9]{1,2}[.][0-9]{1,2}?$"
+            }
+        },
+        {
+            "id": "intervalle",
+                "type": "intervalle",
+                "options": {
+                    "min": 1.1,
+                    "max": 89.88
+                }
+        }
+    ]}
+}

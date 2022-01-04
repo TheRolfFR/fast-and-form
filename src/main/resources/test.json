@@ -1,0 +1,79 @@
+{
+    "name": "test",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "rules": [
+                {
+                "id": "length",
+                    "type": "length",
+                    "options": {
+                        "value":2,
+                        "min": 1
+                    }
+                },
+                {
+                "id": "intervalle",
+                    "type": "intervalle",
+                    "options": {
+                        "min": 10,
+                        "max": 50
+                    }
+                }
+            ]
+        },
+        "km": {
+            "type": "float",
+            "rules": [
+                {
+                    "id": "length",
+                    "type": "length",
+                    "options": {
+                        "min": 2,
+                        "max": 5
+                    }
+                },
+                {
+                    "id": "regex",
+                    "type": "regex",
+                    "options": {
+                        "value": "^[0-9]{1,2}[.][0-9]{1,2}?$"
+                    }
+                },
+                {
+                    "id": "intervalle",
+                        "type": "intervalle",
+                        "options": {
+                            "min": 1.1,
+                            "max": 89.88
+                        }
+                },
+                {
+                    "id": "required",
+                    "type": "required",
+                    "options": {}
+                }
+            ]
+        },
+        "email": {
+            "type": "string",
+            "rules": [
+                {
+                    "id": "length",
+                    "type": "length",
+                    "options": {
+                        "min": 7,
+                        "max": 12
+                    }
+                },
+                {
+                    "id": "regex",
+                    "type": "regex",
+                    "options": {
+                        "value": "^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\\.[a-zA-Z.]{2,18}$"
+                    }
+                }
+            ]
+        }
+    }
+}
