@@ -34,9 +34,9 @@ class EditController {
         return "L'entité est : " + entity + ": "+ id;
     }
     
-    // exemple : http://localhost:8080/add/fastandform/users
-    @PostMapping(value = "add/{DatabaseName}/{CollectionName}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String create(@RequestBody JsonNode jsonNode,@PathVariable String DatabaseName,@PathVariable String CollectionName) throws Exception {
+    // exemple : http://localhost:8080/add?DatabaseName=abc&CollectionName=voiture
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String create(@RequestBody JsonNode jsonNode,@RequestParam String DatabaseName,@RequestParam String CollectionName) throws Exception {
 
         String data = jsonNode.toString();
         
@@ -54,11 +54,11 @@ class EditController {
         return res;
     }
 
-    // exemple : http://localhost:8080/update/fastandform/users/11
-    @PatchMapping(value = "update/{DatabaseName}/{CollectionName}/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String update(@RequestBody JsonNode jsonNode,@PathVariable String DatabaseName,@PathVariable String CollectionName,@PathVariable String id) throws Exception{
+    // exemple : http://localhost:8080/update?DatabaseName=abc&CollectionName=voiture&id=5
+    @PatchMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String update(@RequestBody JsonNode jsonNode,@RequestParam String DatabaseName,@RequestParam String CollectionName,@RequestParam Integer id) throws Exception{
 
-      String data = jsonNode.toString();        
+        String data = jsonNode.toString();        
       // transform the json request body in hashmap
         HashMap<String, Object> mappingData = JsonToHashMap(data);
 

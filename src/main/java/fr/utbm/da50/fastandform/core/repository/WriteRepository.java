@@ -42,7 +42,7 @@ public class WriteRepository{
   }
 
   public void UpdateOneDocument(String DateBaseName, String CollectionName, HashMap<String, Object> map,Integer id){
-    
+    //
   }
 
 }
